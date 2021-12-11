@@ -3,6 +3,7 @@ import {SOCKET_URL} from 'config/constants';
 
 import {useDispatch, useSelector} from 'react-redux';
 import {selectUserName} from 'store/reviews/selectors';
+import {addMessage} from 'store/reviews/actions';
 
 let ws = null;
 
@@ -25,7 +26,7 @@ const useSockets = () => {
         console.log(e);
       };
       ws.onmessage = e => {
-        console.log('message', e.data);
+        dispatch(addMessage(e.data));
       };
 
       return () => {

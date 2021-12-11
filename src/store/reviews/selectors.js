@@ -16,3 +16,8 @@ export const selectUserName = createSelector(
   selectReviewsReducer,
   reviews => reviews.userName,
 );
+
+export const selectMessages = createSelector(
+  selectReviewsReducer,
+  reviews => reviews.messages,
+);

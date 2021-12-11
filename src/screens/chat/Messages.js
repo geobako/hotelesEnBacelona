@@ -1,45 +1,37 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, {useState} from 'react';
-import {StyleSheet, TextInput, View, Text, Button} from 'react-native';
+import React from 'react';
+import {StyleSheet, View, KeyboardAvoidingView, Text} from 'react-native';
 import {useDispatch} from 'react-redux';
-import {setUserName} from 'store/reviews/actions';
 
-const UserNameScreen = () => {
+import MessageInput from './components/MessageInput';
+import {selectMessages} from 'store/reviews/selectors';
+import {useSelector} from 'react-redux';
+
+const Messages = ({route}) => {
   const dispatch = useDispatch();
-  const [value, setValue] = useState(null);
-  const onTextChange = t => setValue(t);
 
-  const onConnect = () => {
-    if (value) {
-      dispatch(setUserName(value));
-    }
-  };
+  const messages = useSelector(selectMessages);
 
   return (
-    <View style={styles.container}>
-      <Text>messages</Text>
-      {/* <TextInput
-        value={value}
-        onChangeText={onTextChange}
-        style={styles.input}
-        placeholder="username"
-      />
-
-      <Button title="Connect" onPress={onConnect} /> */}
+    <View style={styles.screen}>
+      <KeyboardAvoidingView style={styles.screen}>
+        <View style={styles.messageList}>
+          {messages.map((el, i) => (
+            <Text key={i.toString()}>{el}</Text>
+          ))}
+        </View>
+        <MessageInput />
+      </KeyboardAvoidingView>
     </View>
   );
 };
-
 const styles = StyleSheet.create({
-  container: {
+  screen: {
     flex: 1,
   },
-  input: {
-    borderWidth: 1,
-    height: 32,
-    borderColor: 'gray',
-    marginBottom: 24,
+  messageList: {
+    flex: 1,
   },
 });
 
-export default UserNameScreen;
+export default Messages;

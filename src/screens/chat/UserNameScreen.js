@@ -3,15 +3,17 @@ import React, {useState} from 'react';
 import {StyleSheet, TextInput, View, Button} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {setUserName} from 'store/reviews/actions';
+import {storeUserName} from 'services/review-distributions';
 
 const UserNameScreen = () => {
   const dispatch = useDispatch();
   const [value, setValue] = useState(null);
   const onTextChange = t => setValue(t);
 
-  const onConnect = () => {
+  const onConnect = async () => {
     if (value) {
       dispatch(setUserName(value));
+      await storeUserName(value);
     }
   };
 

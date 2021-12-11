@@ -19,3 +19,8 @@ export const setUserName = params => ({
   type: types.SET_USER_NAME,
   payload: params,
 });
+
+export const addMessage = params => ({
+  type: types.ADD_MESSAGE,
+  payload: params,
+});

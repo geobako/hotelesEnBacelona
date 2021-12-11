@@ -4,10 +4,16 @@ const initialState = {
   distributions: {},
   distributionsLoading: false,
   userName: '',
+  messages: [],
 };
 
 const reducer = (state = initialState, {type, payload}) => {
   switch (type) {
+    case TYPES.ADD_MESSAGE:
+      return {
+        ...state,
+        messages: [...state.messages, payload],
+      };
     case TYPES.SET_USER_NAME:
       return {
         ...state,
