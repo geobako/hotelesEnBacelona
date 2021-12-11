@@ -1,18 +1,27 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
-import {StyleSheet, Text} from 'react-native';
-
-import {SafeAreaView} from 'react-native-safe-area-context';
+import {StyleSheet, SafeAreaView, View, Text} from 'react-native';
+import UserNameScreen from './UserNameScreen';
 
 const Chat = () => {
   return (
-    <SafeAreaView>
-      <Text>Chat</Text>
+    <SafeAreaView style={styles.screenContainer}>
+      <View style={styles.container}>
+        <UserNameScreen />
+      </View>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {},
+  screenContainer: {
+    flex: 1,
+  },
+  container: {
+    flex: 1,
+    paddingHorizontal: 24,
+    paddingTop: 32,
+  },
 });
 
 export default Chat;

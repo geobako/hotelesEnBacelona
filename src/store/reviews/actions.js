@@ -14,3 +14,8 @@ export const getReviewDistributionsError = params => ({
   type: types.GET_REVIEW_DISTRIBUTIONS.ERROR,
   payload: params,
 });
+
+export const setUserName = params => ({
+  type: types.SET_USER_NAME,
+  payload: params,
+});

@@ -11,3 +11,8 @@ export const selectDistributionsData = createSelector(
   selectReviewsReducer,
   reviews => reviews.distributions,
 );
+
+export const selectUserName = createSelector(
+  selectReviewsReducer,
+  reviews => reviews.userName,
+);

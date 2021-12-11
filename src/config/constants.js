@@ -4,7 +4,7 @@ export const API_URL =
   'https://front-end-technical-test-api.integration.eu.cloud.trustyou.net';
 
 export const SOCKET_URL =
-  'https://ws-probation-day-chat.integration.eu.cloud.trustyou.net';
+  'wss://ws-probation-day-chat.integration.eu.cloud.trustyou.net/ws';
 
 export const platform = Platform.OS;
 
