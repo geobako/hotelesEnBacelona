@@ -2,12 +2,16 @@
 import React from 'react';
 import {StyleSheet, SafeAreaView, View, Text} from 'react-native';
 import UserNameScreen from './UserNameScreen';
+import {selectUserName} from 'store/reviews/selectors';
+import {useSelector} from 'react-redux';
+import Messages from './Messages';
 
 const Chat = () => {
+  const username = useSelector(selectUserName);
   return (
     <SafeAreaView style={styles.screenContainer}>
       <View style={styles.container}>
-        <UserNameScreen />
+        {username ? <Messages /> : <UserNameScreen />}
       </View>
     </SafeAreaView>
   );
