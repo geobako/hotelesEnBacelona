@@ -10,7 +10,8 @@ function* getDistributions(action) {
   try {
     const res = yield call(getReviewDistributionsRequest);
 
-    yield put(getReviewDistributionsSuccess());
+    const {data} = res.data;
+    yield put(getReviewDistributionsSuccess(data));
   } catch (e) {
     yield put(getReviewDistributionsError(e));
   }

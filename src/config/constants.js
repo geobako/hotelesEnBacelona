@@ -1,7 +1,7 @@
 import {Platform} from 'react-native';
 
 export const API_URL =
-  'https://front-end-technical-test-api.integration.eu.cloud.trustyou.net/docs';
+  'https://front-end-technical-test-api.integration.eu.cloud.trustyou.net';
 
 export const SOCKET_URL =
   'https://ws-probation-day-chat.integration.eu.cloud.trustyou.net';
